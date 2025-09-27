@@ -1,0 +1,13 @@
+// DigitalClock.java
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class DigitalClock {
+    public static void main(String[] args) throws InterruptedException {
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+        while (true) {
+            System.out.print("\r" + sdf.format(new Date())); // overwrite same line
+            Thread.sleep(1000);
+        }
+    }
+}

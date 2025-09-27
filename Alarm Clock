@@ -1,0 +1,22 @@
+// AlarmClock.java
+import java.util.Scanner;
+import java.time.LocalTime;
+
+public class AlarmClock {
+    public static void main(String[] args) throws InterruptedException {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Set alarm (HH:MM): ");
+        String setTime = sc.nextLine();
+
+        while (true) {
+            LocalTime now = LocalTime.now();
+            String current = now.getHour() + ":" + now.getMinute();
+            if (current.equals(setTime)) {
+                System.out.println("⏰ Alarm ringing! Wake up!");
+                break;
+            }
+            Thread.sleep(1000);
+        }
+        sc.close();
+    }
+}

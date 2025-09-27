@@ -1,0 +1,22 @@
+
+import java.util.Scanner;
+
+public class TypingSpeedTest {
+    public static void main(String[] args) {
+        String sample = "Java is fun to learn and powerful for development.";
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Type this sentence:");
+        System.out.println(sample);
+        long start = System.currentTimeMillis();
+        String typed = sc.nextLine();
+        long end = System.currentTimeMillis();
+
+        int words = typed.split("\\s+").length;
+        double timeSec = (end - start) / 1000.0;
+        double wpm = (words / timeSec) * 60;
+
+        System.out.printf("⏱ Time: %.2f sec | WPM: %.2f%n", timeSec, wpm);
+        sc.close();
+    }
+}

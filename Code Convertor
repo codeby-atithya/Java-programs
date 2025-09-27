@@ -1,0 +1,27 @@
+// UnitConverter.java
+import java.util.Scanner;
+
+public class UnitConverter {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.println("\n1.Celsius→Fahrenheit  2.Kg→Pounds  3.Km→Miles  4.Exit");
+            int choice = sc.nextInt();
+
+            if (choice == 1) {
+                System.out.print("Enter Celsius: ");
+                double c = sc.nextDouble();
+                System.out.println("Fahrenheit = " + (c * 9/5 + 32));
+            } else if (choice == 2) {
+                System.out.print("Enter Kg: ");
+                double kg = sc.nextDouble();
+                System.out.println("Pounds = " + (kg * 2.20462));
+            } else if (choice == 3) {
+                System.out.print("Enter Km: ");
+                double km = sc.nextDouble();
+                System.out.println("Miles = " + (km * 0.621371));
+            } else break;
+        }
+        sc.close();
+    }
+}

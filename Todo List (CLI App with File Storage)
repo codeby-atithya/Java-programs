@@ -1,0 +1,39 @@
+// TodoApp.java
+import java.io.*;
+import java.util.*;
+
+public class TodoApp {
+    private static final String FILE_NAME = "tasks.txt";
+
+    public static void main(String[] args) throws IOException {
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.println("\n1. Add Task  2. View Tasks  3. Exit");
+            int choice = sc.nextInt();
+            sc.nextLine(); // clear buffer
+
+            if (choice == 1) {
+                System.out.print("Enter task: ");
+                String task = sc.nextLine();
+                FileWriter fw = new FileWriter(FILE_NAME, true);
+                fw.write(task + "\n");
+                fw.close();
+            } else if (choice == 2) {
+                File file = new File(FILE_NAME);
+                if (file.exists()) {
+                    Scanner fr = new Scanner(file);
+                    System.out.println("\nYour Tasks:");
+                    while (fr.hasNextLine()) {
+                        System.out.println("- " + fr.nextLine());
+                    }
+                    fr.close();
+                } else {
+                    System.out.println("No tasks found!");
+                }
+            } else {
+                break;
+            }
+        }
+        sc.close();
+    }
+}
